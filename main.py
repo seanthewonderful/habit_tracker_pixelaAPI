@@ -45,5 +45,13 @@ px_params = {
     "quantity": "5",
 }
 
-px_r = requests.post(url=px_endpoint, json=px_params, headers=headers)
-print(px_r.text)
+# px_r = requests.post(url=px_endpoint, json=px_params, headers=headers)
+# print(px_r.text)
+
+update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{px_yesterday}"
+update_params = {
+    "quantity": "15"
+}
+
+update_r = requests.put(url=update_endpoint, json=update_params, headers=headers)
+print(update_r)

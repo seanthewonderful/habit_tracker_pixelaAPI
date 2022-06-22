@@ -1,4 +1,6 @@
 import requests
+from datetime import datetime
+
 
 USERNAME = 'seaniwan'
 TOKEN = 'hoi23h3029jlk23f90'
@@ -31,9 +33,15 @@ headers = {
 # graph_r = requests.post(url=graph_endpoint, json=graph_params, headers=headers)
 # print(graph_r.text)
 
+today = datetime.now()
+px_today = today.strftime("%Y%m%d")
+yesterday = datetime(year=2022, month=6, day=21)
+px_yesterday = yesterday.strftime("%Y%m%d")
+# print(px_yesterday)
+
 px_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 px_params = {
-    "date": "20220621",
+    "date": px_today,
     "quantity": "5",
 }
 

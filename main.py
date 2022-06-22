@@ -42,7 +42,7 @@ px_yesterday = yesterday.strftime("%Y%m%d")
 px_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 px_params = {
     "date": px_today,
-    "quantity": "5",
+    "quantity": input("How many minutes did you read yesterday? "),
 }
 
 # px_r = requests.post(url=px_endpoint, json=px_params, headers=headers)
@@ -53,5 +53,10 @@ update_params = {
     "quantity": "15"
 }
 
-update_r = requests.put(url=update_endpoint, json=update_params, headers=headers)
-print(update_r)
+# update_r = requests.put(url=update_endpoint, json=update_params, headers=headers)
+# print(update_r)
+
+delete_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{px_today}"
+
+delete_r = requests.delete(url=delete_endpoint, headers=headers)
+print(delete_r.text)
